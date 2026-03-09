@@ -31,13 +31,13 @@
 }
 
 h1 {
-  color: red;
+  color: rgba(0, 255, 234, 0.616);
 }
 
 .produtos {
-  color: yellow;
+  color: rgb(212, 212, 26);
 }
 
-.div{
-  background-color: blue;
+.desafio{
+  background-color: rgb(25, 25, 202);
 }
