@@ -1,5 +1,6 @@
 import { logDOM } from '@testing-library/react';
 import '../App.css';
+import {Link} from 'react-router-dom';
 
 // Componentes
 import Header from '../Header';
@@ -27,6 +28,9 @@ function Home() {
       <header className="App-header">
         <h1>Hello World!</h1>
         <img src="Octocat.png" className="App-logo" alt="logo" />
+        {/* ------------------------------------------------------ */}
+        <h1>Roteamento</h1>
+        <Link to="/cadastro"><button>Acessar cadastro</button></Link>
         {/* ------------------------------------------------------ */}
         <Header title="contador" />
         <input type="button" value="Clique" onClick={increment} /> 
