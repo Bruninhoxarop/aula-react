@@ -1,15 +1,17 @@
 import Header from '../Header';
 import {Link} from 'react-router-dom';
-import {useEffect} from 'react';
+import {useEffect, useState} from 'react';
 import axios from 'axios';
 
 function Form() {
+    const [estados, setEstados] = useState([]);
     useEffect(()=>{
         axios.get('https://servicodados.ibge.gov.br/api/v1/localidades/estados')
             .then(response => {
-                console.log(response.data);
+                setEstados(response.data);
             })
     }, []);
+
     return (
         <div>
             <Header title="React Form" />
@@ -35,6 +37,10 @@ function Form() {
                         <label>UF:
                             <select name="cmbUF" id="cmbUF">
                                 <option value="0">Selecione uma opção</option>
+                                {estados.map(estado => (<option key={estado.sigla} value={estado.sigla}>{estado.sigla}</option>))}
+                                {/* estado.sigla é o valor referido para cada uf na api do ibge, isso está mapeando o estados */}
+                                {/* criando um "estado" e ele terá uma chave e valor estado.sigla e trará o estado nas opções */}
+                                {/* lembrar a denisson de criar um campo com cidade e criar outro campo para trazer um lugar daquela cidade */}
                             </select>
                         </label>
                     </div>
