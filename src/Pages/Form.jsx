@@ -18,7 +18,10 @@ function Form() {
 
     function handleFormSubmit(event) {
         event.preventDefault();
-        console.log(campos);
+        axios.post('http://localhost:3001/cadastro', campos).then(response => {
+            alert(response.data.dados.length + ' cadastros!');
+        })
+        //axios irá usar um post para mandar os dados para a api do back-end
     }
 
     const [estados, setEstados] = useState([]);
