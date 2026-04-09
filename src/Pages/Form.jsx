@@ -10,19 +10,23 @@ function Form() {
         txtIdade: 0,
         cmbUF: '0'
     });
+    //estado para verificar os campos do formulário
 
     function handleInputChange(event) {
         campos[event.target.name] = event.target.value;
         setCampos(campos);
     }
+    //função que salva os dados dos campos do formulário dentro de 'campos' e depois atualiza o estado
 
     function handleFormSubmit(event) {
         event.preventDefault();
-        axios.post('http://localhost:3001/cadastro', campos).then(response => {
-            alert(response.data.dados.length + ' cadastros!');
+        axios.post('https://orange-rotary-phone-q764p64wrj9v3xgrg-3001.app.github.dev/cadastro', campos).then(response => {
+            alert(response.data.dados.length + ' Cadastros!');
         })
-        //axios irá usar um post para mandar os dados para a api do back-end
     }
+    //função que do axios que envia os dados do formulário para a api do back-end pelo link COM '/cadastro', 
+    // pois é o caminho para salvar na memória da api, e dps envia um alerta de enviado
+    //axios irá usar um post para mandar os dados para a api do back-end
 
     const [estados, setEstados] = useState([]);
     useEffect(()=>{
@@ -31,6 +35,7 @@ function Form() {
                 setEstados(response.data);
             })
     }, []);
+    //useEffect para fazer a requisição do axios para a api do ibge para trazer os estados e salvar no estado
 
     return (
         <div>
