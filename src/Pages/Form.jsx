@@ -20,7 +20,7 @@ function Form() {
 
     function handleFormSubmit(event) {
         event.preventDefault();
-        axios.post('https://orange-rotary-phone-q764p64wrj9v3xgrg-3001.app.github.dev/cadastro', campos).then(response => {
+        axios.post('https://silver-space-winner-r4w6pw6j9vp9cx4p-3001.app.github.dev/cadastro', campos).then(response => {
             alert(response.data.dados.length + ' Cadastros!');
         })
     }
